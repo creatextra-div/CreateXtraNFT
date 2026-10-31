@@ -1,0 +1,19 @@
+{
+  "name": "Web3 Crown of Knowledge",
+  "description": "A digital artwork celebrating Web3 education, learning, innovation, and empowerment. It features a golden WEB3 crown resting above four books representing Learn, Build, Innovate, and Empower.",
+  "image": "ipfs://bafybeibse5xcjwuymz5oaxnz24kruqd5qerd6lz2vkrx4yb7ntco5qboqm",
+  "attributes": [
+    {
+      "trait_type": "Theme",
+      "value": "Web3 Education"
+    },
+    {
+      "trait_type": "Collection",
+      "value": "CXTN"
+    },
+    {
+      "trait_type": "Symbol",
+      "value": "Knowledge and Innovation"
+    }
+  ]
+}
