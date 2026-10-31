@@ -1,21 +1,17 @@
-
- // SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.37;
 
 import {Test} from "forge-std/Test.sol";
-import {Web3CrownOfKnowledge} from
-    "../src/Web3CrownOfKnowledge.sol";
+import {Web3CrownOfKnowledge} from "../src/Web3CrownOfKnowledge.sol";
 
 contract Web3CrownOfKnowledgeTest is Test {
-
     Web3CrownOfKnowledge public nft;
 
     address public owner;
     address public recipient;
     address public unauthorized;
 
-    string public metadataURI =
-        "ipfs://QmExampleMetadataCID/1.json";
+    string public metadataURI = "ipfs://QmExampleMetadataCID/1.json";
 
     function setUp() public {
         owner = address(this);
@@ -36,8 +32,8 @@ contract Web3CrownOfKnowledgeTest is Test {
     function testFirstTokenIDIsOne() public {
         uint256 tokenId = nft.mintNFT(recipient, metadataURI);
 
-       assertEq(tokenId, 1);
-assertEq(nft.nextTokenId(), 2);
+        assertEq(tokenId, 1);
+        assertEq(nft.nextTokenId(), 2);
     }
 
     function testNFTOwnership() public {
@@ -55,12 +51,7 @@ assertEq(nft.nextTokenId(), 2);
     function testOnlyOwnerCanMint() public {
         vm.prank(unauthorized);
 
-        vm.expectRevert(
-            abi.encodeWithSignature(
-                "OwnableUnauthorizedAccount(address)",
-                unauthorized
-            )
-        );
+        vm.expectRevert(abi.encodeWithSignature("OwnableUnauthorizedAccount(address)", unauthorized));
 
         nft.mintNFT(recipient, metadataURI);
     }
@@ -69,8 +60,8 @@ assertEq(nft.nextTokenId(), 2);
         uint256 firstTokenId = nft.mintNFT(recipient, metadataURI);
         uint256 secondTokenId = nft.mintNFT(recipient, metadataURI);
 
-       assertEq(firstTokenId, 1);
-assertEq(secondTokenId, 2);
-assertEq(nft.nextTokenId(), 3);
+        assertEq(firstTokenId, 1);
+        assertEq(secondTokenId, 2);
+        assertEq(nft.nextTokenId(), 3);
     }
 }
